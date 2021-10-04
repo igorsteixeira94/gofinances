@@ -1,7 +1,50 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
+import { getBottomSpace } from 'react-native-iphone-x-helper';
 import HighlightCard from '../../components/HighlightCard';
+import TransactionCard from '../../components/TransactionCard';
 import * as S from './styles';
+
+
+const data = [
+  {
+    title: "Desenvolvimento de site",
+    amount: "R$ 12.000,00",
+    category:{
+      name: 'Vendas',
+      icon: 'dollar-sign'
+    },
+    date:'13/04/2021'
+  },
+  {
+    title: "Desenvolvimento de site",
+    amount: "R$ 12.000,00",
+    category:{
+      name: 'Vendas',
+      icon: 'dollar-sign'
+    },
+    date:'13/04/2021'
+  },
+  {
+    title: "Desenvolvimento de site",
+    amount: "R$ 12.000,00",
+    category:{
+      name: 'Vendas',
+      icon: 'dollar-sign'
+    },
+    date:'13/04/2021'
+  },
+
+  {
+    title: "Desenvolvimento de site",
+    amount: "R$ 12.000,00",
+    category:{
+      name: 'Vendas',
+      icon: 'dollar-sign'
+    },
+    date:'13/04/2021'
+  }
+];
 
 const Dashboard: React.FC = () => {
   return (
@@ -39,6 +82,21 @@ const Dashboard: React.FC = () => {
           lastTrasaction="01 à 16 de abril" 
         />
       </S.HighlightCards>
+
+      <S.Transactions>
+        <S.Title>Listagem</S.Title>
+        <S.TransactionsList
+          data={data}
+          keyExtractor={(item,index) => String(index)}
+          renderItem={({item}) => <TransactionCard data={item} />}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{
+            paddingBottom: getBottomSpace(),
+          }}
+
+        />
+ 
+      </S.Transactions>
       
       </S.Container>
   );
