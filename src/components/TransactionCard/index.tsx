@@ -3,30 +3,37 @@ import { View } from 'react-native';
 
 import * as S from './styles';
 
-interface Category {
+interface ICategory {
   name: string;
   icon: string;
 
 }
 
-interface Props {
-  data : {
-    title: string;
-    amount: string;
-    category: Category;
-    date: string;  
-  }
+export interface TranscationCardProps {
+  type: 'positive' | 'negative';
+  title: string;
+  amount: string;
+  category: ICategory;
+  date: string;  
+ 
 }
 
-const TransactionCard = ({data:{title,amount,category,date}}:Props) => {
+interface Props {
+  data: TranscationCardProps
+}
+
+const TransactionCard = ({data:{title,amount,category,date,type}}:Props) => {
   return (
     <S.Container>
       <S.Title>{title}</S.Title>
-      <S.Amount>{amount}</S.Amount>
+      <S.Amount type={type}>
+        {type ==="negative" && '- '}
+        {amount}
+      </S.Amount>
 
       <S.Footer>
         <S.Category>
-          <S.Icon name="dollar-sign"/>
+          <S.Icon name={category.icon}/>
           <S.CategoryName>{category.name}</S.CategoryName>
         </S.Category>
 
