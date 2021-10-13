@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 import { getBottomSpace, getStatusBarHeight } from 'react-native-iphone-x-helper';
 import {IDataListProps} from '../Dashboard/index';
 import { FlatList } from 'react-native';
+import { BorderlessButton } from 'react-native-gesture-handler';
 
 
 export const Container = styled.View`
@@ -103,6 +104,8 @@ export const TransactionsList = styled(
     paddingBottom: getBottomSpace(),
   },
 })``;
+
+export const LogoutButton = styled(BorderlessButton)``;
 
 /**
  * Android usa dpi - como metrica para os seus pixels
