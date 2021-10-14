@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import { categories } from '../../utils/categories';
 
 import * as S from './styles';
 
@@ -11,9 +12,9 @@ interface ICategory {
 
 export interface TranscationCardProps {
   type: 'positive' | 'negative';
-  title: string;
+  name: string;
   amount: string;
-  category: ICategory;
+  category: string;
   date: string;  
  
 }
@@ -22,10 +23,11 @@ interface Props {
   data: TranscationCardProps
 }
 
-const TransactionCard = ({data:{title,amount,category,date,type}}:Props) => {
+const TransactionCard = ({data:{name,amount,category,date,type}}:Props) => {
+  const searchCategory = categories.find(item => item.key === category)
   return (
     <S.Container>
-      <S.Title>{title}</S.Title>
+      <S.Title>{name}</S.Title>
       <S.Amount type={type}>
         {type ==="negative" && '- '}
         {amount}
@@ -33,8 +35,8 @@ const TransactionCard = ({data:{title,amount,category,date,type}}:Props) => {
 
       <S.Footer>
         <S.Category>
-          <S.Icon name={category.icon}/>
-          <S.CategoryName>{category.name}</S.CategoryName>
+          <S.Icon name={searchCategory?.icon}/>
+          <S.CategoryName>{searchCategory?.name}</S.CategoryName>
         </S.Category>
 
         <S.Date>{date}</S.Date>

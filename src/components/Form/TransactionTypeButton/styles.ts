@@ -6,12 +6,12 @@ import { RectButton } from 'react-native-gesture-handler';
 
 
 interface IconProps {
-  type: 'up' | 'down';
+  type: 'positive' | 'negative';
 }
 
 interface ContainerProps  {
   isActive: boolean;
-  type: 'up' | 'down';
+  type: 'positive' | 'negative';
 }
 
 export const Container = styled.View<ContainerProps>`
@@ -24,11 +24,11 @@ export const Container = styled.View<ContainerProps>`
 
  
 
-  ${({isActive, type,theme})=> isActive && type === "up" && css`
+  ${({isActive, type,theme})=> isActive && type === "positive" && css`
     background-color: ${theme.colors.success_light};
   `}
 
-  ${({isActive, type,theme})=> isActive && type === "down" && css`
+  ${({isActive, type,theme})=> isActive && type === "negative" && css`
     background-color: ${theme.colors.attention_light};
   `}
 `;
@@ -45,7 +45,7 @@ export const Icon = styled(Feather)<IconProps>`
   font-size: ${RFValue(24)}px;
   margin-right: 12px;
 
-  color: ${({theme,type}) => type === "up" ? theme.colors.success : theme.colors.attention};
+  color: ${({theme,type}) => type === "positive" ? theme.colors.success : theme.colors.attention};
 `;
 
 export const Title = styled.Text`

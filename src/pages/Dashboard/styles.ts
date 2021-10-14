@@ -107,6 +107,11 @@ export const TransactionsList = styled(
 
 export const LogoutButton = styled(BorderlessButton)``;
 
+export const LoadView = styled.View`
+  flex: 1;
+  justify-content: center;
+`;
+
 /**
  * Android usa dpi - como metrica para os seus pixels
  * Ios usa points - como metrica para os seus pixels
