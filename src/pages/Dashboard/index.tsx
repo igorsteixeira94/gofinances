@@ -152,20 +152,20 @@ const Dashboard: React.FC = () => {
           <HighlightCard 
             type="up"
             title="Entradas" 
-            amout={highlightData.entries.amount} 
-            lastTrasaction={`Última entrada dia ${highlightData.entries.lastTransaction}`}
+            amout={highlightData.entries?.amount} 
+            lastTrasaction={`Última entrada dia ${highlightData.entries?.lastTransaction}`}
           />
           <HighlightCard 
             type="down"
             title="Saídas" 
-            amout={highlightData.expensives.amount} 
-            lastTrasaction={`Última saída dia ${highlightData.expensives.lastTransaction}`}
+            amout={highlightData.expensives?.amount} 
+            lastTrasaction={`Última saída dia ${highlightData.expensives?.lastTransaction}`}
           />
           <HighlightCard 
             type="total"
             title="Total" 
-            amout={highlightData.total.amount} 
-            lastTrasaction={highlightData.total.lastTransaction}
+            amout={highlightData.total?.amount} 
+            lastTrasaction={highlightData.total?.lastTransaction}
           />
         </S.HighlightCards>
 

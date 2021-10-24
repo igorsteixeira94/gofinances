@@ -3,11 +3,13 @@ import {useTheme} from 'styled-components';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Dashboard from '../pages/Dashboard';
 import Register from '../pages/Register';
+import Resume from '../pages/Resume';
 import { Platform } from 'react-native';
 
 import { MaterialIcons } from '@expo/vector-icons'
 
-const { Navigator,Screen } = createBottomTabNavigator();
+
+const { Navigator, Screen } = createBottomTabNavigator();
 
 const AppRoutes: React.FC = () => {
   const theme = useTheme();
@@ -53,7 +55,7 @@ const AppRoutes: React.FC = () => {
       />
       <Screen 
         name="Resumo"
-        component={Register}
+        component={Resume}
         options={{
           tabBarIcon: (({size, color}) => 
             <MaterialIcons 
